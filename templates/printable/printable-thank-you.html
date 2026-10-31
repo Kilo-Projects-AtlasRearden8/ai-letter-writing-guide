@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Printable Thank-You Note Template</title>
+<link rel="stylesheet" href="../../site/css/print.css">
+</head>
+<body>
+<div class="page note-card">
+<header class="letterhead">
+<h1>Thank-You Note</h1>
+<p class="note">Fill in, review, print or send.</p>
+</header>
+
+<form class="letter-body" autocomplete="off">
+<div class="field-row">
+<label for="sender-name">Your name</label>
+<input type="text" id="sender-name" placeholder="Your full name">
+</div>
+<div class="field-row">
+<label for="sender-contact">Your email or address</label>
+<input type="text" id="sender-contact" placeholder="email@example.com">
+</div>
+<div class="field-row">
+<label for="date">Date</label>
+<input type="date" id="date">
+</div>
+
+<hr class="sep">
+
+<div class="field-row">
+<label for="recipient-name">Dear</label>
+<input type="text" id="recipient-name" placeholder="Name of person you're thanking">
+</div>
+
+<div class="field-row textarea-row">
+<label for="what-they-did">What they did</label>
+<textarea id="what-they-did" rows="2" placeholder="What you're thanking them for — be specific."></textarea>
+</div>
+
+<div class="field-row textarea-row">
+<label for="why-mattered">Why it helped or mattered</label>
+<textarea id="why-mattered" rows="2" placeholder="One sentence: how it helped, how you felt, what it meant."></textarea>
+</div>
+
+<div class="field-row textarea-row">
+<label for="extra">Optional extra sentence</label>
+<textarea id="extra" rows="2" placeholder="How you'll use the gift, when you'll see them again, what happens next..."></textarea>
+</div>
+
+<hr class="sep">
+
+<div class="closing">
+<p>With thanks,</p>
+<div class="signature-line"></div>
+<p id="signed-name"></p>
+</div>
+</form>
+
+<footer class="page-footer">
+<p>Published by Asdale Dynamics, LLC · MIT License · Copyright (c) 2026 Asdale Dynamics, LLC</p>
+</footer>
+</div>
+
+<script>
+document.getElementById('date').valueAsDate = new Date();
+document.getElementById('sender-name').addEventListener('input', () => {
+  document.getElementById('signed-name').textContent = document.getElementById('sender-name').value;
+});
+</script>
+</body>
+</html>

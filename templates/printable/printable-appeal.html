@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Printable Appeal Letter Template</title>
+<link rel="stylesheet" href="../../site/css/print.css">
+</head>
+<body>
+<div class="page">
+<header class="letterhead">
+<h1>Appeal Letter</h1>
+<p class="note">Fill in all brackets, review carefully, then print or send.</p>
+</header>
+
+<form class="letter-body" autocomplete="off">
+<div class="field-row">
+<label for="sender-name">Your name</label>
+<input type="text" id="sender-name" placeholder="Your full name">
+</div>
+<div class="field-row">
+<label for="sender-address">Your address (optional for email)</label>
+<input type="text" id="sender-address" placeholder="Street, City, State ZIP">
+</div>
+<div class="field-row">
+<label for="sender-contact">Email or phone</label>
+<input type="text" id="sender-contact" placeholder="email@example.com or 555-000-0000">
+</div>
+<div class="field-row">
+<label for="date">Date</label>
+<input type="date" id="date">
+</div>
+
+<hr class="sep">
+
+<div class="field-row">
+<label for="recipient-name">Organization name</label>
+<input type="text" id="recipient-name" placeholder="Insurance company, benefits agency, etc.">
+</div>
+<div class="field-row">
+<label for="recipient-address">Appeals department or address</label>
+<input type="text" id="recipient-address" placeholder="Department or mailing address">
+</div>
+
+<hr class="sep">
+
+<div class="field-row">
+<label for="decision-type">Re: Appeal of</label>
+<input type="text" id="decision-type" placeholder="Decision type (claim denial, benefits decision, etc.)">
+</div>
+<div class="field-row">
+<label for="claim-number">Claim/case number</label>
+<input type="text" id="claim-number" placeholder="Reference number (last 4 digits if unsure)">
+</div>
+<div class="field-row">
+<label for="decision-date">Date of decision</label>
+<input type="date" id="decision-date">
+</div>
+<div class="field-row">
+<label for="appeal-deadline">Deadline to appeal</label>
+<input type="date" id="appeal-deadline">
+</div>
+
+<div class="field-row">
+<label for="salutation">Dear</label>
+<input type="text" id="salutation" placeholder="Appeals Department or Contact Name">
+</div>
+
+<div class="field-row textarea-row">
+<label for="decision-summary">What the decision said (in your words)</label>
+<textarea id="decision-summary" rows="2" placeholder="Summarize the reason given for the denial/decision."></textarea>
+</div>
+
+<div class="field-row textarea-row">
+<label for="reasons">Why you disagree (factual reasons)</label>
+<textarea id="reasons" rows="4" placeholder="- Reason 1: factual, short
+- Reason 2: factual, short
+- Reason 3: policy or rule, if you have it"></textarea>
+</div>
+
+<div class="field-row textarea-row">
+<label for="enclosures">Documents enclosed</label>
+<textarea id="enclosures" rows="2" placeholder="Doctor's note, receipt, letter, discharge instructions, etc."></textarea>
+</div>
+
+<div class="field-row textarea-row">
+<label for="policy">Policy or rule you rely on (if any)</label>
+<textarea id="policy" rows="2" placeholder="Policy name, section, or rule that supports your case."></textarea>
+</div>
+
+<div class="field-row textarea-row">
+<label for="requested-outcome">What you want</label>
+<textarea id="requested-outcome" rows="2" placeholder="Approve claim, reverse decision, schedule hearing, etc. — be exact."></textarea>
+</div>
+<div class="field-row">
+<label for="response-deadline">Please respond by</label>
+<input type="date" id="response-deadline">
+</div>
+
+<hr class="sep">
+
+<div class="closing">
+<p>Thank you for your time.</p>
+<p>Sincerely,</p>
+<div class="signature-line"></div>
+<p id="signed-name"></p>
+<p id="signed-contact"></p>
+<p>Enclosures: <span id="listed-enclosures"></span></p>
+</div>
+</form>
+
+<footer class="page-footer">
+<p>Published by Asdale Dynamics, LLC · MIT License · Copyright (c) 2026 Asdale Dynamics, LLC</p>
+<p>Education only — not legal or medical advice. Have a professional review if this affects your health, benefits, or legal rights.</p>
+</footer>
+</div>
+
+<script>
+document.getElementById('date').valueAsDate = new Date();
+const respDate = new Date();
+respDate.setDate(respDate.getDate() + 10);
+document.getElementById('response-deadline').valueAsDate = respDate;
+
+['sender-name','sender-contact','enclosures'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => {
+    document.getElementById('signed-name').textContent = document.getElementById('sender-name').value;
+    document.getElementById('signed-contact').textContent = document.getElementById('sender-contact').value;
+    document.getElementById('listed-enclosures').textContent = document.getElementById('enclosures').value;
+  });
+});
+</script>
+</body>
+</html>
